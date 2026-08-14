@@ -1,0 +1,26 @@
+# Environment & Secrets
+.env
+.env.local
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Cognee Local Storage & Databases
+.cognee_system/
+.data_storage/
+.cognee_cache/
+*.log
+
+# Testing & IDE
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.idea/
+.vscode/

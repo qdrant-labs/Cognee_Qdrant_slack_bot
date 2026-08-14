@@ -1,74 +1,121 @@
-# HackNight:  Cognee & Qdrant
+# CVlizer 🤖🎯
 
-Everything you need for Friday's HackNight, in one place. These materials are also posted in the HackNight Slack during the event.
+> **AI Talent Matcher for Slack powered by Cognee Knowledge Graphs, Qdrant Vector Search & Groq LLMs.**
 
----
-
-<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/d6ccdd23-03d8-442b-b6bb-7c0578637b47" />
-
-
-## Quick links
-
-| What | Where |
-|---|---|
-| Event Slack (join here) | https://join.slack.com/t/hacknightgroup/shared_invite/zt-46s18ngo0-_OCkw280819vb~9bGoi_qA |
-| Announcements channel | `#all-hacknight` |
-| Technical support / troubleshooting | `#support` |
-| **Final submission form** | https://docs.google.com/forms/d/e/1FAIpQLScxLDtI5jsnwOSxKkBzo3PFYgbWT4n8mEYudcd8YtjaWHpElw/viewform |
-| Audience vote (top 5 pitches) | https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2 |
+CVlizer acts as the AI HR matching department of a modern tech organization. Candidate CVs are ingested into a **Cognee Knowledge Graph** backed by **Qdrant**. When hiring managers or engineers `@CVlizer` in Slack with a job description, CVlizer:
+1. **Indexes & Cognifies the job description** into Cognee.
+2. **Performs vector chunk search** over the candidate CV collection to pick the deterministic **Top 3** candidates via measured cosine similarity.
+3. **Traverses the Cognee knowledge graph** (`SearchType.GRAPH_COMPLETION`) to synthesize fit scores (0–100), key CV quotes, and reasons to hire.
+4. **Responds in Slack (<3s ack)** via an asynchronous Bolt thread card with rich Block Kit formatting.
 
 ---
 
-## Getting help during the event
+## 🏛️ Architecture
 
-- **`#all-hacknight`**: all materials, links, and announcements get posted here as the event runs.
-- **`#support`**: bring anything technical here: setup, tokens, ngrok tunnels, Slack app config, Cognee or Qdrant questions. Someone will pick it up.
+```
+data/cvs/*.md ──► seed.py ──► cognee.add(dataset="cvs", node_set=["cv","candidate:<slug>"])
+                                   └─► cognify() ─► FastEmbed (BAAI/bge-small-en-v1.5) ─► Qdrant
 
----
-
-## Judging criteria
-
-| Criterion | Points |
-|---|---|
-| Your project runs and is ready to use on Monday | 5 |
-| Depth of the stack, not breadth | 0–5 |
-| Complexity of your project (subagents, additional tooling, etc.) | 0–5 |
-| Novel application | 0–5 |
-
-**Demos:** the top 5 projects demo in front of the audience, and the audience picks the winner via [Slido](https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2).
-
-> "Depth, not breadth" is the one people most often get wrong. One integration that genuinely works end to end beats five that half-work.
+Slack @CVlizer ──► Immediate ack (<3s) ──► Async Background Task
+                                               1. cognee.add + cognify(dataset="jobs", node_set=["job"])
+                                               2. Qdrant vector chunk search (node_set=["cv"]) → Top 3
+                                               3. GRAPH_COMPLETION → Fit score, direct quotes & reason
+                                               4. Post Block Kit card in thread
+```
 
 ---
 
-## Project ideas
+## 🚀 Quickstart (5 Minutes)
 
-Starting points, not a menu: feel free to go somewhere else entirely.
+### 1. Prerequisites
+- Python 3.12 (`uv` recommended)
+- Docker & Docker Compose
+- Groq API Key (`gsk_...`)
+- (Optional) Slack App Bot Token (`xoxb-...`) & App Token (`xapp-...` with Socket Mode enabled)
 
-- **Onboarding buddy**: seed it with a handful of docs, then let a new joiner ask the questions they'd otherwise DM three people about.
-- **Slack + one more source**: add GitHub issues or meeting notes via `cognee.add()` so a Slack question can be answered from a source that isn't Slack.
-- **Weekly digest**: cluster what was remembered this week and post a summary.
+### 2. Environment Setup
+
+Clone repository and install dependencies:
+```bash
+# Setup virtualenv and install dependencies
+uv venv --python 3.12
+source .venv/bin/activate
+uv pip install -e ".[dev]"
+uv pip install --no-deps cognee-community-vector-adapter-qdrant==0.4.0
+uv pip install qdrant-client transformers pytest pytest-asyncio
+```
+
+Configure `.env`:
+```bash
+cp .env.example .env
+# Add your Groq key and Slack tokens to .env:
+# LLM_API_KEY="gsk_..."
+# SLACK_BOT_TOKEN="xoxb-..."
+# SLACK_APP_TOKEN="xapp-..."
+```
+
+### 3. Start Qdrant & Seed Candidate CVs
+
+```bash
+# Start local Qdrant container
+make up
+
+# Seed synthetic CVs into Cognee & Qdrant
+make seed
+```
+
+Verify populated Qdrant collections:
+```bash
+curl http://localhost:6333/collections
+```
 
 ---
 
-## Resources
+## 🧪 Testing & CLI Matching
 
-- **Cognee Slack Demo Project**: https://github.com/qdrant-labs/cognee-demo-slack (with the claude skill to set it up)
-- **Cognee Slack integration docs**: https://docs.cognee.ai/integrations/slack-integration#slack
-- **Cognee SDK**: https://app.notion.com/p/topoteretes/Slack-Integration-SDK-3bc37007fa8281a787b7f4a401a85a58  
-- **How Cognee uses Qdrant under the hood** (technical deep dive for the curious): https://claude.ai/code/artifact/e7f14b71-e4d1-45b4-b306-28b7ba1ec12a
-- **Qdrant's docs**: https://qdrant.tech/documentation/overview/?_gl=1*14j2fdg*_up*MQ..*_gs*MQ..&gclid=Cj0KCQjw-frTBhCvARIsADv4XY4xDhdiBT4gJqyHZzRXGp1c3MuItstLC4_8_rEDGXSs2eKOKXCV3cQaAq4eEALw_wcB&gbraid=0AAAAAodw_9BIWKUlqH2aQ2-1WSIgSRgoX
-- **Qdrant SKILLS**: https://github.com/qdrant/skills
-- **What is ngrok** (you'll want this to expose a local server to Slack): https://ngrok.com/docs/what-is-ngrok
-- **Slack apps dashboard** (create and configure your app here): https://api.slack.com/apps
+### Run Unit Tests (Mocked Cognee, No Network/LLM Required)
+```bash
+make test
+```
+
+### Run CLI Job Matcher Directly
+You can match job descriptions directly from the terminal without Slack:
+```bash
+PYTHONPATH=src .venv/bin/python -m cvlizer.matcher "Looking for a Staff SRE with Kubernetes, Terraform, and Istio service mesh experience"
+```
 
 ---
 
-## Submitting
+## 💬 Running the Slack Bot
 
-1. Make sure your project **runs**: a judge should be able to use it.
-2. Create a folder with your project in the repo with YOURPROJECTNAME
-3. Submit via the [final submission form](https://docs.google.com/forms/d/e/1FAIpQLScxLDtI5jsnwOSxKkBzo3PFYgbWT4n8mEYudcd8YtjaWHpElw/viewform).
-4. If you're in the top 5, get ready to pitch: the audience votes on [Slido](https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2).
+Start the Slack Socket Mode bot:
+```bash
+make run
+```
 
-Good luck. Build something deep!!!
+### Interacting in Slack:
+- Type `@CVlizer help` to view the capabilities card.
+- Mention `@CVlizer <job description>` to trigger instant matching and thread response.
+
+---
+
+## 📁 Repository Structure
+
+```
+├── data/cvs/               # Synthetic CV corpus (~20 candidates across tech roles)
+├── plans/
+│   ├── job-matcher.md      # Original MVP specification
+│   └── plan.md             # Detailed implementation plan
+├── src/cvlizer/
+│   ├── config.py           # Cognee & Qdrant adapter initialization
+│   ├── seed.py             # Swappable CV ingestion pipeline
+│   ├── matcher.py          # Transport-agnostic Cognee/Qdrant matcher
+│   ├── blocks.py           # Slack Block Kit card UI templates
+│   └── slack_app.py        # Async Slack Bolt Socket Mode bot
+├── tests/
+│   └── test_matcher.py     # Fast isolated unit tests
+├── docker-compose.yml      # Local Qdrant container config
+├── pyproject.toml          # Package configuration & dependencies
+├── Makefile                # Dev workflow shortcuts (up, seed, run, test)
+└── README.md
+```

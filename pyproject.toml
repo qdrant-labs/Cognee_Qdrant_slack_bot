@@ -1,0 +1,26 @@
+[project]
+name = "cvlizer"
+version = "0.1.0"
+description = "CVlizer - AI Candidate Matcher for Slack using Cognee and Qdrant"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cognee>=0.1.30",
+    "fastembed>=0.4.0",
+    "slack-bolt>=1.20.0",
+    "pydantic>=2.7.0",
+    "python-dotenv>=1.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cvlizer"]
