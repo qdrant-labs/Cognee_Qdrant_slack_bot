@@ -33,6 +33,8 @@ DO NOT IMPLEMENT ANY OF THIS!!!
 
 - Talent pool: Store CVs for X years and notify job-posters about pool candidates that match the job profile.
 
+- Take public presence of candidate (articles, repos, etc) into account for matchmaking.
+
 
 ---
 
