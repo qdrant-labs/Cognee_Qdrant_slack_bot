@@ -1,0 +1,8 @@
+[
+  {
+    "type": "message",
+    "user": "U_BOB",
+    "text": "The Qdrant migration PR is up: https://github.com/acme/platform/pull/2841 - cutover is next Tuesday. We are still inside the $200/month budget constraint Dan set, running a single 4GB node.",
+    "ts": "1772719500.000100"
+  }
+]

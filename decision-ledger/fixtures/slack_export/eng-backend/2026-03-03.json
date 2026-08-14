@@ -1,0 +1,17 @@
+[
+  {
+    "type": "message",
+    "user": "U_BOB",
+    "text": "Following up on the pgvector decision from February 3rd. We load tested at 2M vectors and p99 latency hit 800ms, which is 4x over our 200ms budget. Decision: we are migrating the embedding store from Postgres/pgvector to Qdrant. This supersedes the February 3rd pgvector decision.",
+    "ts": "1772529600.000100",
+    "thread_ts": "1772529600.000100",
+    "reply_count": 1
+  },
+  {
+    "type": "message",
+    "user": "U_ALICE",
+    "text": "Confirmed, I'm on board. pgvector was the right call at 200k vectors, it just does not hold at 2M. Qdrant it is.",
+    "ts": "1772530860.000200",
+    "thread_ts": "1772529600.000100"
+  }
+]

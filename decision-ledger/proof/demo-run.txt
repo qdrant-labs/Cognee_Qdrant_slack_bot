@@ -1,0 +1,62 @@
+
+─────────────────────────────────────────────────────────── asking as: eng-lead ────────────────────────────────────────────────────────────
+────────────────────────────── Why aren't we using Postgres for the vector store, and what are we using now? ───────────────────────────────
+
+╭────────────────────────────────────────────── 1. NAIVE VECTOR SEARCH  (Qdrant top-k → LLM) ──────────────────────────────────────────────╮
+│                                                                                                                                          │
+│  Postgres/pgvector wasn’t kept because at 2M vectors its p99 latency was ~800ms, over the 200ms target. We now use Qdrant, with binary   │
+│  quantization to stay on a single node within budget.                                                                                    │
+│                                                                                                                                          │
+╰─────────────────────────────────────────────────────── no structure, no clearance ───────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────── 2. DECISION LEDGER  (cognee typed graph → Qdrant) ────────────────────────────────────────────╮
+│                                                                                                                                          │
+│  We moved off Postgres/pgvector because at 2M vectors it hit ~800ms p99, exceeding the 200ms budget. We now use Qdrant.                  │
+│                                                                                                                                          │
+│  Decision lineage (walked on the graph, not guessed)                                                                                     │
+│     [SUPERSEDED] use postgres + pgvector for the embedding store                                                                         │
+│   ↳ [LIVE     ] migrate the embedding store from postgres/pgvector to qdrant                                                             │
+│                                                                                                                                          │
+│  Constraints still in force                                                                                                              │
+│     • keep vector infrastructure under $200 per month                                                                                    │
+│     • 200ms p99 latency budget                                                                                                           │
+│     • northwind contract p99 latency sla under 200ms                                                                                     │
+│     • stay inside the $200/month budget set by dan                                                                                       │
+│                                                                                                                                          │
+│  Clearance                                                                                                                               │
+│     Alice Chen (Backend Lead, platform)                                                                                                  │
+│     channels: eng-backend, eng-private, general                                                                                          │
+│     nothing withheld at this clearance level                                                                                             │
+│                                                                                                                                          │
+│                                                                                                                                          │
+╰────────────────────────────────────────────────────────── lineage + clearance ───────────────────────────────────────────────────────────╯
+
+────────────────────────────────────────────────────────── asking as: contractor ───────────────────────────────────────────────────────────
+────────────────────────────── Why aren't we using Postgres for the vector store, and what are we using now? ───────────────────────────────
+
+╭────────────────────────────────────────────── 1. NAIVE VECTOR SEARCH  (Qdrant top-k → LLM) ──────────────────────────────────────────────╮
+│                                                                                                                                          │
+│  Postgres/pgvector hit ~800ms p99 at 2M vectors, over the 200ms target. We now use Qdrant, with binary quantization to stay on a single  │
+│  node within budget.                                                                                                                     │
+│                                                                                                                                          │
+╰─────────────────────────────────────────────────────── no structure, no clearance ───────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────── 2. DECISION LEDGER  (cognee typed graph → Qdrant) ────────────────────────────────────────────╮
+│                                                                                                                                          │
+│  Postgres/pgvector didn’t scale: at 2M vectors it hit ~800ms p99, above the 200ms target. We now use Qdrant, with binary quantization    │
+│  to stay within the single-node budget.                                                                                                  │
+│                                                                                                                                          │
+│  Decision lineage (walked on the graph, not guessed)                                                                                     │
+│     [SUPERSEDED] use postgres + pgvector for the embedding store                                                                         │
+│   ↳ [LIVE     ] migrate the embedding store from postgres/pgvector to qdrant                                                             │
+│                                                                                                                                          │
+│  Constraints still in force                                                                                                              │
+│     • keep vector infrastructure under $200 per month                                                                                    │
+│     • 200ms p99 latency budget                                                                                                           │
+│     • stay inside the $200/month budget set by dan                                                                                       │
+│                                                                                                                                          │
+│  Clearance                                                                                                                               │
+│     Erin Park (Technical Writer, external contractor)                                                                                    │
+│     channels: eng-backend, general                                                                                                       │
+│     ⚠ 1 source(s) matched but withheld (not cleared)                                                                                     │
+│                                                                                                                                          │
+│                                                                                                                                          │
+╰────────────────────────────────────────────────────────── lineage + clearance ───────────────────────────────────────────────────────────╯

@@ -1,0 +1,24 @@
+[
+  {
+    "type": "message",
+    "user": "U_ALICE",
+    "text": "Decision: we're going with Postgres + pgvector for the embedding store. We already run Postgres, there's no new infra to babysit, and pgvector handles our current 200k vectors comfortably.",
+    "ts": "1770113520.000100",
+    "thread_ts": "1770113520.000100",
+    "reply_count": 2
+  },
+  {
+    "type": "message",
+    "user": "U_DAN",
+    "text": "From the finance side the only hard constraint is that we keep vector infrastructure under $200 per month. pgvector on the existing box adds $0, so that works for me.",
+    "ts": "1770114660.000200",
+    "thread_ts": "1770113520.000100"
+  },
+  {
+    "type": "message",
+    "user": "U_BOB",
+    "text": "Agreed for now. Flagging that we have not load tested past 500k vectors, so this may need revisiting once the corpus grows.",
+    "ts": "1770116520.000300",
+    "thread_ts": "1770113520.000100"
+  }
+]

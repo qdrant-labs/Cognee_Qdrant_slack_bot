@@ -1,0 +1,8 @@
+[
+  {
+    "type": "message",
+    "user": "U_CAROL",
+    "text": "Heads up before tomorrow's thread: the real forcing function on the vector store migration is the Northwind contract. Their SLA requires p99 under 200ms and legal signs it Friday. Keep the customer name out of the public channels, it is under NDA until launch.",
+    "ts": "1772469900.000100"
+  }
+]

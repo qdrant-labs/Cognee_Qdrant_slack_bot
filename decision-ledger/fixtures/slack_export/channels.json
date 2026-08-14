@@ -1,0 +1,26 @@
+[
+  {
+    "id": "C_ENG_BACKEND",
+    "name": "eng-backend",
+    "created": 1767225600,
+    "is_private": false,
+    "purpose": { "value": "Platform and backend engineering decisions" },
+    "members": ["U_ALICE", "U_BOB", "U_CAROL", "U_DAN", "U_ERIN"]
+  },
+  {
+    "id": "C_ENG_PRIVATE",
+    "name": "eng-private",
+    "created": 1767225600,
+    "is_private": true,
+    "purpose": { "value": "Restricted: commercial context behind engineering decisions" },
+    "members": ["U_ALICE", "U_BOB", "U_CAROL"]
+  },
+  {
+    "id": "C_GENERAL",
+    "name": "general",
+    "created": 1767225600,
+    "is_private": false,
+    "purpose": { "value": "Company wide" },
+    "members": ["U_ALICE", "U_BOB", "U_CAROL", "U_DAN", "U_ERIN"]
+  }
+]

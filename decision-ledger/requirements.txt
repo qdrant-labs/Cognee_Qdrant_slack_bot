@@ -1,0 +1,5 @@
+cognee==1.4.2
+qdrant-client
+fastembed
+python-dotenv
+rich

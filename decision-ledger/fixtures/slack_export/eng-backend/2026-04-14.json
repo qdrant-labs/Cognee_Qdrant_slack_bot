@@ -1,0 +1,8 @@
+[
+  {
+    "type": "message",
+    "user": "U_ALICE",
+    "text": "Decision: enabling binary quantization on the Qdrant collection. It cuts memory roughly 32x so we can stay on the single node as the corpus grows. This refines the March 3rd Qdrant decision, it does not replace it.",
+    "ts": "1776166200.000100"
+  }
+]
