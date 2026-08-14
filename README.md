@@ -71,4 +71,4 @@ Starting points, not a menu: feel free to go somewhere else entirely.
 3. Submit via the [final submission form](https://docs.google.com/forms/d/e/1FAIpQLScxLDtI5jsnwOSxKkBzo3PFYgbWT4n8mEYudcd8YtjaWHpElw/viewform).
 4. If you're in the top 5, get ready to pitch: the audience votes on [Slido](https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2).
 
-Good luck. Build something deep.
+Good luck. Build something deep!!!
