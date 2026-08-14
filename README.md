@@ -53,6 +53,7 @@ Starting points, not a menu: feel free to go somewhere else entirely.
 
 ## Resources
 
+- **Cognee Slack Demo Project**: https://github.com/qdrant-labs/cognee-demo-slack (with the claude skill to set it up)
 - **Cognee Slack integration docs**: https://docs.cognee.ai/integrations/slack-integration#slack
 - **Cognee SDK**: https://app.notion.com/p/topoteretes/Slack-Integration-SDK-3bc37007fa8281a787b7f4a401a85a58  
 - **How Cognee uses Qdrant under the hood** (technical deep dive for the curious): https://claude.ai/code/artifact/e7f14b71-e4d1-45b4-b306-28b7ba1ec12a
