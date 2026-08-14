@@ -4,12 +4,19 @@
 
 | | |
 |---|---|
-| **Live** | https://shelflife.ringamo.dev |
+| **Live — talk to it** | https://shelflife.ringamo.dev |
+| **Live — type to it** | https://shelflife.ringamo.dev/text |
+| **The channel it reads** | https://shelflife.ringamo.dev/chat |
 | **Full repo** | https://github.com/Omid-Mohajerani/shelf-life |
 | **Write-up** | [SUBMISSION.md](SUBMISSION.md) |
 | **Author** | Omid Mohajerani (solo) |
 
+![Shelf Life](docs/screenshot-voice.png)
+
 A workspace memory that tells you **how much to trust its own answers**.
+
+Ask it out loud, or type. While it answers you watch the work: Qdrant lands in ~120ms,
+both cognee legs take ~20s, then the verdict, who to ask, and both sources.
 
 Ask a question and you get four things: what the official docs say, what the team actually
 found in the channel, **how much to trust it** (`current` / `stale` / `unproven` /
