@@ -1,0 +1,20 @@
+{
+  "_comment": "Channel visibility per persona. retrieve.py only ever passes the datasets a persona is cleared for to cognee.search(), and reports how many sources were withheld.",
+  "personas": {
+    "eng-lead": {
+      "display_name": "Alice Chen (Backend Lead, platform)",
+      "slack_user": "U_ALICE",
+      "channels": ["eng-backend", "eng-private", "general"]
+    },
+    "contractor": {
+      "display_name": "Erin Park (Technical Writer, external contractor)",
+      "slack_user": "U_ERIN",
+      "channels": ["eng-backend", "general"]
+    },
+    "finance": {
+      "display_name": "Dan Rossi (Finance Business Partner)",
+      "slack_user": "U_DAN",
+      "channels": ["eng-backend", "general"]
+    }
+  }
+}

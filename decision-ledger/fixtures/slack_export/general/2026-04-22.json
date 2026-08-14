@@ -1,0 +1,8 @@
+[
+  {
+    "type": "message",
+    "user": "U_ERIN",
+    "text": "quick q for the platform folks - we're on Postgres with pgvector for the embedding store right? I'm writing up the architecture section of the onboarding doc and want to get it right",
+    "ts": "1776870600.000100"
+  }
+]

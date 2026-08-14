@@ -1,0 +1,37 @@
+[
+  {
+    "id": "U_ALICE",
+    "name": "alice",
+    "real_name": "Alice Chen",
+    "profile": { "title": "Backend Lead", "team": "platform" },
+    "is_bot": false
+  },
+  {
+    "id": "U_BOB",
+    "name": "bob",
+    "real_name": "Bob Marek",
+    "profile": { "title": "Infrastructure Engineer", "team": "platform" },
+    "is_bot": false
+  },
+  {
+    "id": "U_CAROL",
+    "name": "carol",
+    "real_name": "Carol Ndiaye",
+    "profile": { "title": "Engineering Manager", "team": "platform" },
+    "is_bot": false
+  },
+  {
+    "id": "U_DAN",
+    "name": "dan",
+    "real_name": "Dan Rossi",
+    "profile": { "title": "Finance Business Partner", "team": "finance" },
+    "is_bot": false
+  },
+  {
+    "id": "U_ERIN",
+    "name": "erin",
+    "real_name": "Erin Park",
+    "profile": { "title": "Technical Writer (contractor)", "team": "external" },
+    "is_bot": false
+  }
+]
