@@ -54,7 +54,9 @@ Starting points, not a menu: feel free to go somewhere else entirely.
 ## Resources
 
 - **Cognee Slack integration docs**: https://docs.cognee.ai/integrations/slack-integration#slack
+- **Cognee SDK**: https://app.notion.com/p/topoteretes/Slack-Integration-SDK-3bc37007fa8281a787b7f4a401a85a58  
 - **How Cognee uses Qdrant under the hood** (technical deep dive for the curious): https://claude.ai/code/artifact/e7f14b71-e4d1-45b4-b306-28b7ba1ec12a
+- **Qdrant's docs**: https://qdrant.tech/documentation/overview/?_gl=1*14j2fdg*_up*MQ..*_gs*MQ..&gclid=Cj0KCQjw-frTBhCvARIsADv4XY4xDhdiBT4gJqyHZzRXGp1c3MuItstLC4_8_rEDGXSs2eKOKXCV3cQaAq4eEALw_wcB&gbraid=0AAAAAodw_9BIWKUlqH2aQ2-1WSIgSRgoX
 - **What is ngrok** (you'll want this to expose a local server to Slack): https://ngrok.com/docs/what-is-ngrok
 - **Slack apps dashboard** (create and configure your app here): https://api.slack.com/apps
 
