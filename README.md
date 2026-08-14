@@ -1,8 +1,11 @@
-# HackNight — Cognee & Qdrant
+# HackNight:  Cognee & Qdrant
 
 Everything you need for Friday's HackNight, in one place. These materials are also posted in the HackNight Slack during the event.
 
 ---
+
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/d6ccdd23-03d8-442b-b6bb-7c0578637b47" />
+
 
 ## Quick links
 
@@ -18,8 +21,8 @@ Everything you need for Friday's HackNight, in one place. These materials are al
 
 ## Getting help during the event
 
-- **`#all-hacknight`** — all materials, links, and announcements get posted here as the event runs.
-- **`#support`** — bring anything technical here: setup, tokens, ngrok tunnels, Slack app config, Cognee or Qdrant questions. Someone will pick it up.
+- **`#all-hacknight`**: all materials, links, and announcements get posted here as the event runs.
+- **`#support`**: bring anything technical here: setup, tokens, ngrok tunnels, Slack app config, Cognee or Qdrant questions. Someone will pick it up.
 
 ---
 
@@ -40,27 +43,28 @@ Everything you need for Friday's HackNight, in one place. These materials are al
 
 ## Project ideas
 
-Starting points, not a menu — feel free to go somewhere else entirely.
+Starting points, not a menu: feel free to go somewhere else entirely.
 
-- **Onboarding buddy** — seed it with a handful of docs, then let a new joiner ask the questions they'd otherwise DM three people about.
-- **Slack + one more source** — add GitHub issues or meeting notes via `cognee.add()` so a Slack question can be answered from a source that isn't Slack.
-- **Weekly digest** — cluster what was remembered this week and post a summary.
+- **Onboarding buddy**: seed it with a handful of docs, then let a new joiner ask the questions they'd otherwise DM three people about.
+- **Slack + one more source**: add GitHub issues or meeting notes via `cognee.add()` so a Slack question can be answered from a source that isn't Slack.
+- **Weekly digest**: cluster what was remembered this week and post a summary.
 
 ---
 
 ## Resources
 
-- **Cognee Slack integration docs** — https://docs.cognee.ai/integrations/slack-integration#slack
-- **How Cognee uses Qdrant under the hood** (technical deep dive for the curious) — https://claude.ai/code/artifact/e7f14b71-e4d1-45b4-b306-28b7ba1ec12a
-- **What is ngrok** (you'll want this to expose a local server to Slack) — https://ngrok.com/docs/what-is-ngrok
-- **Slack apps dashboard** (create and configure your app here) — https://api.slack.com/apps
+- **Cognee Slack integration docs**: https://docs.cognee.ai/integrations/slack-integration#slack
+- **How Cognee uses Qdrant under the hood** (technical deep dive for the curious): https://claude.ai/code/artifact/e7f14b71-e4d1-45b4-b306-28b7ba1ec12a
+- **What is ngrok** (you'll want this to expose a local server to Slack): https://ngrok.com/docs/what-is-ngrok
+- **Slack apps dashboard** (create and configure your app here): https://api.slack.com/apps
 
 ---
 
 ## Submitting
 
-1. Make sure your project **runs** — a judge should be able to use it on Monday.
-2. Submit via the [final submission form](https://docs.google.com/forms/d/e/1FAIpQLScxLDtI5jsnwOSxKkBzo3PFYgbWT4n8mEYudcd8YtjaWHpElw/viewform).
-3. If you're in the top 5, get ready to pitch — the audience votes on [Slido](https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2).
+1. Make sure your project **runs**: a judge should be able to use it.
+2. Create a folder with your project in the repo with YOURPROJECTNAME
+3. Submit via the [final submission form](https://docs.google.com/forms/d/e/1FAIpQLScxLDtI5jsnwOSxKkBzo3PFYgbWT4n8mEYudcd8YtjaWHpElw/viewform).
+4. If you're in the top 5, get ready to pitch: the audience votes on [Slido](https://app.sli.do/event/sXC8CqpmCsbrEX93g7JeE2).
 
 Good luck. Build something deep.
