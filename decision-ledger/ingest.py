@@ -21,6 +21,7 @@ import bootstrap  # noqa: F401  (loads .env, registers the Qdrant adapter)
 
 import cognee  # noqa: E402  (must import after load_dotenv so config picks up .env)
 
+import index_payload  # noqa: E402
 from models import EXTRACTION_PROMPT, DecisionGraph  # noqa: E402
 
 ROOT = Path(__file__).parent
@@ -111,6 +112,11 @@ async def ingest(reset: bool = True) -> None:
         datasets=[DATASET],
         custom_prompt=EXTRACTION_PROMPT,
     )
+    # Qdrant refuses to filter on an unindexed payload key, so without this every
+    # clearance-scoped search comes back empty and the ACL layer quietly stops working.
+    print("\nIndexing the NodeSet payload field so clearance filters can run...")
+    index_payload.main()
+
     print("Done. Graph is in the local graph store, vectors are in Qdrant.")
 
 

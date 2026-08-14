@@ -3,6 +3,3 @@ qdrant-client
 fastembed
 python-dotenv
 rich
-
-# Qdrant support ships separately; --no-deps because its pin fights cognee's.
-# pip install --no-deps cognee-community-vector-adapter-qdrant==0.4.0

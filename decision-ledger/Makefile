@@ -6,6 +6,7 @@ help:
 	@echo "make setup       create venv + install deps"
 	@echo "make check       verify .env and reachability of Qdrant + the LLM"
 	@echo "make ingest      Slack export -> typed decision graph (calls the LLM once)"
+	@echo "make index       (re)create the Qdrant payload index the ACL filter needs"
 	@echo "make demo        the side-by-side comparison, as the backend lead"
 	@echo "make contractor  same question at contractor clearance"
 	@echo "make skill       compile the graph into .claude/skills/"
@@ -19,6 +20,9 @@ check:
 
 ingest:
 	$(PY) ingest.py
+
+index:
+	$(PY) index_payload.py
 
 demo:
 	$(PY) demo.py
