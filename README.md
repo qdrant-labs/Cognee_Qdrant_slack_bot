@@ -28,9 +28,12 @@ Everything you need for Friday's HackNight, in one place. These materials are al
 
 ## Judging criteria
 
+**The judgement will happen same day after submission deadline at 9PM**
+
+
 | Criterion | Points |
 |---|---|
-| Your project runs and is ready to use on Monday | 5 |
+| Your project runs and is ready to use | 5 |
 | Depth of the stack, not breadth | 0–5 |
 | Complexity of your project (subagents, additional tooling, etc.) | 0–5 |
 | Novel application | 0–5 |
