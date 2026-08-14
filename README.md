@@ -77,6 +77,15 @@ curl http://localhost:6333/collections
 ```bash
 make test
 ```
+**The judgement will happen same day after submission deadline at 9PM**
+
+
+| Criterion | Points |
+|---|---|
+| Your project runs and is ready to use | 5 |
+| Depth of the stack, not breadth | 0–5 |
+| Complexity of your project (subagents, additional tooling, etc.) | 0–5 |
+| Novel application | 0–5 |
 
 ### Run CLI Job Matcher Directly
 You can match job descriptions directly from the terminal without Slack:
